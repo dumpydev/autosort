@@ -1,0 +1,26 @@
+{
+  "name": "autosort",
+  "version": "1.0.0",
+  "description": "App to automatically sort folders.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumpydev/autosort.git"
+  },
+  "author": "Dumpy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dumpydev/autosort/issues"
+  },
+  "homepage": "https://github.com/dumpydev/autosort#readme",
+  "dependencies": {
+    "@dumpy/andylib": "^3.2.0",
+    "mkdirp": "^1.0.4"
+  },
+  "devDependencies": {
+    "uuid": "^8.3.2"
+  }
+}

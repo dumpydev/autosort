@@ -30,7 +30,23 @@ const classes = [
     {
         name: "Geography",
         short: "GEO"
-    }
+    },
+    {
+        name: "History",
+        short: "HIS"
+    },
+    {
+        name: "Music",
+        short: "MUS"
+    },
+    {
+        name: "Art",
+        short: "ART"
+    },
+    {
+        name: "Physical Education",
+        short: "PE"
+    },
 ]
 rl.question('Prefolder (leave empty for none):', (prefolder) => {
 
@@ -60,7 +76,7 @@ rl.question('Prefolder (leave empty for none):', (prefolder) => {
 
         }
     }
-    if (filesfound == 0) {
+    if (filesfound === 0) {
         logger.error(`No files found`)
         exit(0)
     }
@@ -78,6 +94,4 @@ rl.question('Prefolder (leave empty for none):', (prefolder) => {
         }
     }
     logger.info(`Done!`)
-
-
 })

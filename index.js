@@ -2,7 +2,9 @@ const fs = require('node:fs')
 const al = require('@dumpy/andylib')
 const logger = new al.logger()
 const path = require('path')
-// import readline
+require('colors')
+var figlet = require('figlet');
+const version = require('./package.json').version
 const readline = require('node:readline')
 const { exit } = require('node:process')
 const rl = readline.createInterface({
@@ -48,50 +50,55 @@ const classes = [
         short: "PE"
     },
 ]
-rl.question('Prefolder (leave empty for none):', (prefolder) => {
+let logo = "";
+figlet('AutoSort', function(err, data) {
+    console.log(data.rainbow)
+    console.log(`Version: v${version}`.green)
+    rl.question('Prefolder (leave empty for none):', (prefolder) => {
 
-    const sort = (filename, destination, prefolder = "") => {
-        if (prefolder.length > 0) {
-            if (!fs.existsSync(path.join(prefolder, destination))) {
-                fs.mkdirSync(path.join(prefolder, destination), { recursive: true })
+        const sort = (filename, destination, prefolder = "") => {
+            if (prefolder.length > 0) {
+                if (!fs.existsSync(path.join(prefolder, destination))) {
+                    fs.mkdirSync(path.join(prefolder, destination), { recursive: true })
+                }
+                fs.renameSync(filename, path.join(prefolder, destination, filename))
+            } else {
+                if (!fs.existsSync(path.join(destination))) {
+                    fs.mkdirSync(path.join(destination), { recursive: true })
+                }
+                fs.renameSync(filename, path.join(destination, filename))
             }
-            fs.renameSync(filename, path.join(prefolder, destination, filename))
-        } else {
-            if (!fs.existsSync(path.join(destination))) {
-                fs.mkdirSync(path.join(destination), { recursive: true })
-            }
-            fs.renameSync(filename, path.join(destination, filename))
-        }
 
-
-    }
-    let filesfound = 0;
-    const files = fs.readdirSync('./')
-    for (let file of files) {
-        for (var i = 0; i < classes.length; i++) {
-            if (file.startsWith(classes[i].short)) {
-                logger.info(`Found ${file}`)
-                filesfound++
-            }
 
         }
-    }
-    if (filesfound === 0) {
-        logger.error(`No files found`)
-        exit(0)
-    }
+        let filesfound = 0;
+        const files = fs.readdirSync('./')
+        for (let file of files) {
+            for (var i = 0; i < classes.length; i++) {
+                if (file.startsWith(classes[i].short)) {
+                    logger.info(`Found ${file}`)
+                    filesfound++
+                }
 
-    logger.info(`Sorting files!`)
-    for (let file of files) {
-        for (var i = 0; i < classes.length; i++) {
-            if (file.startsWith(classes[i].short)) {
-                if (prefolder) {
-                    sort(file, classes[i].name, prefolder)
-                } else {
-                    sort(file, classes[i].name)
+            }
+        }
+        if (filesfound === 0) {
+            logger.error(`No files found`)
+            exit(0)
+        }
+
+        logger.info(`Sorting files!`)
+        for (let file of files) {
+            for (var i = 0; i < classes.length; i++) {
+                if (file.startsWith(classes[i].short)) {
+                    if (prefolder) {
+                        sort(file, classes[i].name, prefolder)
+                    } else {
+                        sort(file, classes[i].name)
+                    }
                 }
             }
         }
-    }
-    logger.info(`Done!`)
-})
+        logger.info(`Done!`)
+    })
+});

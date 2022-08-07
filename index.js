@@ -50,7 +50,6 @@ const classes = [
         short: "PE"
     },
 ]
-let logo = "";
 figlet('AutoSort', function(err, data) {
     console.log(data.rainbow)
     console.log(`Version: v${version}`.green)

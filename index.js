@@ -49,6 +49,14 @@ const classes = [
         name: "Physical Education",
         short: "PE"
     },
+    {
+        name: "Chinese",
+        short: "CHN"
+    },
+    {
+        name: "Design Technology",
+        short: "DT"
+    },
 ]
 let logo = "";
 figlet('AutoSort', function(err, data) {

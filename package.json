@@ -1,6 +1,6 @@
 {
   "name": "autosort",
-  "version": "1.3",
+  "version": "1.8",
   "description": "Simple app to sort files!",
   "main": "index.js",
   "repository": "https://github.com/dumpydev/autosort.git",

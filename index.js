@@ -59,7 +59,15 @@ const classes = [
     {
         name: 'Computer Science',
         short: "CS"
-    }
+    },
+    {
+        name: "Chinese",
+        short: "CHN"
+    },
+    {
+        name: "Design Technology",
+        short: "DT"
+    },
 ]
 console.log(`AutoSort`)
 console.log(`Version: v${version}`.green)

@@ -10,5 +10,8 @@
   "dependencies": {
     "@dumpy/andylib": "^3.2.0",
     "figlet": "^1.5.2"
+  },
+  "devDependencies": {
+    "uuid": "^8.3.2"
   }
 }

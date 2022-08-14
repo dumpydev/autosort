@@ -21,10 +21,13 @@ Automatically sorts your files!
 - ART - Art
 - PE - Physical Education
 - MUS - Music
+- HEA - Health
+- BUS - Buisness
+- CS - Computer Science
 ## Suggestions?
 Please let me know!
 ## License
-This is free software. You can redistribute it and/or modify it under the terms of the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+This is free software. You can redistribute it and/or modify it under the terms of the [MIT Licence](https://opensource.org/licenses/MIT).
 ## Author
 - [@dumpydev](https://dumpyy.xyz)
 ## Contributors
